@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Layout } from "antd";
+import Link from "next/link";
 
 import styled from "./lib/header.module.css";
 
@@ -8,7 +10,9 @@ const Header = () => {
 
   return (
     <Header className={styled.header}>
-      <h1>Nano</h1>
+      <h1>
+        <Link href="/">Nano</Link>
+      </h1>
     </Header>
   );
 };

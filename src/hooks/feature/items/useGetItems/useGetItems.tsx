@@ -1,6 +1,8 @@
 import React from "react";
 import type { ColumnsType } from "antd/es/table";
 
+import CheckPrice from "@/components/feature/items/CheckPrice";
+
 import { GetItemsCallback, ItemDataSource } from "./lib/useGetItems.interface";
 
 const useGetItems = (): GetItemsCallback => {
@@ -25,7 +27,6 @@ const useGetItems = (): GetItemsCallback => {
     {
       title: "name",
       width: 400,
-
       key: "name",
       dataIndex: "name",
       fixed: "left",
@@ -34,6 +35,12 @@ const useGetItems = (): GetItemsCallback => {
       title: "price",
       key: "price",
       dataIndex: "setPrice",
+      width: 100,
+    },
+    {
+      title: "현재 가격",
+      key: "nowPrice",
+      render: (_, record) => <CheckPrice url={record.link} />,
     },
   ];
 
