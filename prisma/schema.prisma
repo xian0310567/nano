@@ -17,7 +17,7 @@ model User {
 
 model Standby {
   id            Int     @id @default(autoincrement())
-  url           String
+  url           String  @db.LongText
   uploadDate    DateTime
   author        User    @relation(fields: [authorId], references: [id])
   authorId      Int

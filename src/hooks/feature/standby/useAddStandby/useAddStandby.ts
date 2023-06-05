@@ -8,8 +8,9 @@ const useAddStandby = () => {
 
   const addStandby = (url: string) => {
     axios
-      .post<Standby>("/api/standby/post", {
+      .post<Standby>("/api/standby", {
         url: url,
+        userId: 1,
       })
       .then((res) => {
         setStandby(res.data);

@@ -5,20 +5,18 @@ import moment from "moment";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Standby | string>
+  res: NextApiResponse<Standby[] | string>
 ) {
   const prisma = new PrismaClient();
 
-  const { url, userId } = req.body;
-  if (!url || !userId) {
-    return res.status(400).send("not found body: url or userId");
+  const { user } = req.query;
+  if (!user) {
+    return res.status(400).send("not found query: user");
   }
 
-  const standby = await prisma.standby.create({
-    data: {
-      url: url,
-      uploadDate: moment().add(9, "hour").format(),
-      authorId: userId,
+  const standby = await prisma.standby.findMany({
+    where: {
+      authorId: parseInt(user + ""),
     },
   });
 
