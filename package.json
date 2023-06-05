@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "npx prisma migrate dev"
   },
   "dependencies": {
     "@next/font": "13.3.1",
@@ -19,6 +20,7 @@
     "cheerio": "^1.0.0-rc.12",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
+    "moment": "^2.29.4",
     "next": "13.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

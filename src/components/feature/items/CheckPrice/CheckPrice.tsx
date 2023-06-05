@@ -1,21 +1,20 @@
 import React from "react";
-import axios from "axios";
 
 import { Button } from "antd";
 
+import useGetCrawlPrice from "@/hooks/common/useGetCrawlPrice";
+
 const CheckPrice = ({ url }: { url: string }) => {
-  const [open, setOpen] = React.useState<number>();
+  const { price, getCrawlPrice } = useGetCrawlPrice();
 
   return (
     <Button
-      disabled={open ? true : false}
+      disabled={price ? true : false}
       onClick={() => {
-        axios.get(`/api/crawl?url=${url}`).then((res) => {
-          setOpen(res.data.price);
-        });
+        getCrawlPrice(url);
       }}
     >
-      {open}
+      {price}
     </Button>
   );
 };

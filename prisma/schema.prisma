@@ -8,17 +8,17 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id             Int     @id @default(autoincrement())
+  userId         String
+  email          String  @unique
+  name           String?
+  standby        Standby[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model Standby {
+  id            Int     @id @default(autoincrement())
+  url           String
+  uploadDate    DateTime
+  author        User    @relation(fields: [authorId], references: [id])
+  authorId      Int
 }
