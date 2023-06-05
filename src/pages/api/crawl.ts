@@ -13,7 +13,7 @@ export default function handler(
 ) {
   if (!req.query.url) return res.status(400).send("not found param: url");
 
-  axios.get(req.query.url + "").then((response) => {
+  axios.get(req.query.url + "", { maxRedirects: 1 }).then((response) => {
     const $ = cheerio.load(response.data);
 
     $("meta").each((_, el) => {
