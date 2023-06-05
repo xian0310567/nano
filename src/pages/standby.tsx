@@ -5,10 +5,12 @@ import { Space, Button } from "antd";
 import UploadItemModal from "@/components/feature/standby/UploadItem";
 import ItemsTable from "@/components/feature/standby/StandbyItemTable";
 
+import openUploadModal from "@/hooks/feature/standby/useOpenUploadModal";
+
 import styled from "@/styles/standby.module.css";
 
 const standby = () => {
-  const [uploadModal, setUploadModal] = React.useState<boolean>(false);
+  const { uploadModal, setUploadModal } = openUploadModal();
 
   return (
     <>

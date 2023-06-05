@@ -10,15 +10,23 @@ export default async function handler(
   const prisma = new PrismaClient();
 
   const { user } = req.query;
-  if (!user) {
-    return res.status(400).send("not found query: user");
+  let filter = {};
+
+  if (user) {
+    filter = {
+      where: {
+        authorId: parseInt(user + ""),
+      },
+    };
+  } else {
+    filter = {
+      where: {
+        state: "upload",
+      },
+    };
   }
 
-  const standby = await prisma.standby.findMany({
-    where: {
-      authorId: parseInt(user + ""),
-    },
-  });
+  const standby = await prisma.standby.findMany(filter);
 
   return res.status(200).send(standby);
 }

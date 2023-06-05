@@ -3,13 +3,13 @@ import moment from "moment";
 
 import UploadState from "@/components/feature/standby/UploadState";
 
-import { StandbyItemDataSource } from "@/hooks/feature/standby/useGetStandbyItems";
+import { Standby } from "@prisma/client";
 import type { ColumnsType } from "antd/es/table";
 
 const useGetStandbyTableColumn = (): {
-  columns: ColumnsType<StandbyItemDataSource>;
+  columns: ColumnsType<Standby>;
 } => {
-  const columns: ColumnsType<StandbyItemDataSource> = [
+  const columns: ColumnsType<Standby> = [
     {
       title: "id",
       key: "key",
