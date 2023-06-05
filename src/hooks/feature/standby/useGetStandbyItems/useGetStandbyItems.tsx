@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import { Table } from "antd";
-
 import { GetItemsCallback } from "./lib/useGetStandbyItems.interface";
 import { Standby } from "@prisma/client";
 

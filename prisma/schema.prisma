@@ -21,4 +21,11 @@ model Standby {
   uploadDate    DateTime
   author        User    @relation(fields: [authorId], references: [id])
   authorId      Int
+  state         StandbyState  @default(upload)
+}
+
+enum StandbyState {
+  reject
+  upload
+  complete
 }

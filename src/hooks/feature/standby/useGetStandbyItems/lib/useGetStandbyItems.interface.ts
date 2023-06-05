@@ -1,14 +1,6 @@
-import type { ColumnsType } from "antd/es/table";
+import { Standby } from "@prisma/client";
 
 export type GetItemsCallback = {
-  dataSource: StandbyItemDataSource[] | undefined;
+  dataSource: Standby[] | undefined;
   getStandbyItems: () => void;
-};
-
-export type StandbyItemDataSource = {
-  id: number;
-  url: string;
-  uploadDate: Date;
-  // state: "upload" | "reject" | "complete";
-  // description: string;
 };

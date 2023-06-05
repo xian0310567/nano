@@ -1,6 +1,8 @@
 import React from "react";
 import moment from "moment";
 
+import UploadState from "@/components/feature/standby/UploadState";
+
 import { StandbyItemDataSource } from "@/hooks/feature/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
@@ -46,6 +48,7 @@ const useGetStandbyTableColumn = (): {
       title: "상태",
       key: "state",
       dataIndex: "state",
+      render: (text) => <UploadState state={text} />,
     },
   ];
 
