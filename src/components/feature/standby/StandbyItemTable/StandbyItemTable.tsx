@@ -14,18 +14,7 @@ const StandbyItemTable = () => {
   }, []);
 
   return (
-    <Table
-      dataSource={dataSource}
-      columns={columns}
-      scroll={{ x: 500 }}
-      // expandable={{
-      //   expandedRowRender: (record) => (
-      //     <a style={{ margin: 0 }} href={record.url} target="_blank">
-      //       {record.url}
-      //     </a>
-      //   ),
-      // }}
-    />
+    <Table dataSource={dataSource} columns={columns} scroll={{ x: 500 }} />
   );
 };
 

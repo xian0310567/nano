@@ -49,6 +49,21 @@ const useGetStandbyTableColumn = (): {
       key: "state",
       dataIndex: "state",
       render: (text) => <UploadState state={text} />,
+      onFilter: (value, record) => record.state == value,
+      filters: [
+        {
+          text: "대기중",
+          value: "upload",
+        },
+        {
+          text: "업로드 성공",
+          value: "reject",
+        },
+        {
+          text: "업로드 거절",
+          value: "complete",
+        },
+      ],
     },
   ];
 
