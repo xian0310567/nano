@@ -2,9 +2,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+// }
+
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 model User {
@@ -17,7 +24,7 @@ model User {
 
 model Standby {
   id            Int     @id @default(autoincrement())
-  url           String  @db.LongText
+  url           String
   uploadDate    DateTime
   author        User    @relation(fields: [authorId], references: [id])
   authorId      Int
