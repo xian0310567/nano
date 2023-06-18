@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
 
-import getMenuList from "@/hooks/statics/useGetMenuList";
+import getMenuList from "@/hooks/statics/useMenuList";
 
 import styled from "./lib/sider.module.css";
 

@@ -6,7 +6,7 @@ import UploadState from "@/components/feature/standby/UploadState";
 import { Standby } from "@prisma/client";
 import type { ColumnsType } from "antd/es/table";
 
-const useGetStandbyTableColumn = (): {
+const useStandbyTableColumn = (): {
   columns: ColumnsType<Standby>;
 } => {
   const columns: ColumnsType<Standby> = [
@@ -70,4 +70,4 @@ const useGetStandbyTableColumn = (): {
   return { columns };
 };
 
-export default useGetStandbyTableColumn;
+export default useStandbyTableColumn;

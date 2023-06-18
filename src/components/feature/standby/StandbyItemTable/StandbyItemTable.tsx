@@ -3,7 +3,7 @@ import React from "react";
 import { Table } from "antd";
 
 import useGetStandbyItems from "@/hooks/feature/standby/useGetStandbyItems";
-import getStandbyTableColumn from "@/hooks/statics/useGetStandbyTableColumn";
+import getStandbyTableColumn from "@/hooks/statics/useStandbyTableColumn";
 
 const StandbyItemTable = () => {
   const { dataSource, getStandbyItems } = useGetStandbyItems();

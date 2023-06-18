@@ -2,7 +2,7 @@ import type { MenuProps } from "antd";
 
 import Link from "next/link";
 
-const useGetMenuList = () => {
+const useMenuList = () => {
   const navMenu: MenuProps["items"] = [
     {
       key: 1,
@@ -17,4 +17,4 @@ const useGetMenuList = () => {
   return { navMenu };
 };
 
-export default useGetMenuList;
+export default useMenuList;

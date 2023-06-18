@@ -3,9 +3,9 @@ import type { ColumnsType } from "antd/es/table";
 
 import CheckPrice from "@/components/feature/items/CheckPrice";
 
-import { GetItemsCallback, ItemDataSource } from "./lib/useGetItems.interface";
+import { GetItemsCallback, ItemDataSource } from "./lib/useItemList.interface";
 
-const useGetItems = (): GetItemsCallback => {
+const useItemList = (): GetItemsCallback => {
   const dataSource: ItemDataSource[] = [
     {
       key: 1,
@@ -54,4 +54,4 @@ const useGetItems = (): GetItemsCallback => {
   return { dataSource, columns };
 };
 
-export default useGetItems;
+export default useItemList;

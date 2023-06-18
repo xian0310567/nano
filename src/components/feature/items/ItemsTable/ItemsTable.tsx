@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 
-import getItems from "@/hooks/feature/items/useGetItems";
+import getItems from "@/hooks/feature/items/useItemList";
 
 const ItemsTable = () => {
   const { dataSource, columns } = getItems();
