@@ -1,13 +1,13 @@
 import React from "react";
 
-import LoginForm from "@/components/feature/auth/LoginForm";
+import RegisterForm from "@/components/feature/auth/RegisterForm";
 
 import styled from "@/styles/signIn.module.css";
 
 const signIn = () => {
   return (
     <div className={styled.container}>
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 };

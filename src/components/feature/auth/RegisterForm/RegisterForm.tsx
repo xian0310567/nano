@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Form, Input } from "antd";
 
-import styled from "./lib/loginForm.module.css";
+import styled from "./lib/registerForm.module.css";
 
 const LoginForm = () => {
   return (
@@ -18,7 +18,6 @@ const LoginForm = () => {
       >
         <Input />
       </Form.Item>
-
       <Form.Item
         label="Name"
         name="name"
