@@ -27,6 +27,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "crypto-js": "^4.1.1",
     "prisma": "^4.15.0"
   }
 }
