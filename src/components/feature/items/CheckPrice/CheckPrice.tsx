@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button } from "antd";
 
-import useGetCrawlPrice from "@/hooks/common/useGetCrawlPrice";
+import useGetCrawlPrice from "@/hooks/feature/crawl/useGetCrawlPrice";
 
 const CheckPrice = ({ url }: { url: string }) => {
   const { price, getCrawlPrice } = useGetCrawlPrice();
