@@ -1,1 +1,1 @@
-export { default } from "./useCrypto";
+export { encodeText, decodeText } from "./useCrypto";

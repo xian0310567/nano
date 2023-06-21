@@ -2,18 +2,24 @@ import React from "react";
 
 import { Button, Form, Input } from "antd";
 
+import useRegistration from "@/hooks/feature/auth/useRegistration";
+
 import styled from "./lib/registerForm.module.css";
 
 const LoginForm = () => {
+  const { registerUser } = useRegistration();
   return (
     <Form
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       className={styled.container}
+      onFinish={(value) => {
+        registerUser(value);
+      }}
     >
       <Form.Item
         label="ID"
-        name="ID"
+        name="userId"
         rules={[{ required: true, message: "ID를 입력해주세요." }]}
       >
         <Input />
@@ -34,7 +40,7 @@ const LoginForm = () => {
       </Form.Item>
       <Form.Item
         label="Email"
-        name="Email"
+        name="email"
         rules={[{ required: false, message: "이메일을 입력해주세요." }]}
       >
         <Input />
