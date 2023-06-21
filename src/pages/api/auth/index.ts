@@ -9,6 +9,6 @@ export default async function handler(
   if (req.method == "GET") {
     // return get(req, res);
   } else if (req.method == "POST") {
-    register(req, res);
+    return register(req, res);
   }
 }
