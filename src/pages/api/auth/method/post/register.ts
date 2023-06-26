@@ -9,16 +9,14 @@ export default async function handler(
 ) {
   const prisma = new PrismaClient();
 
+  const { id, email, name, password } = req.body;
+
   const user = await prisma.user.create({
     data: {
-      userId: req.body.id,
-      email: req.body.email,
-      name: req.body.name,
-      // password: req.body.password,
-      password: crypto.AES.encrypt(
-        req.body.password,
-        process.env.NANO_PRIVATE_KEY ?? ""
-      ).toString(),
+      userId: id,
+      email: email,
+      name: name,
+      password: crypto.AES.encrypt(password, "aa").toString(),
     },
   });
 
