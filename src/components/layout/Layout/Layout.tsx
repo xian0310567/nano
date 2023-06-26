@@ -10,6 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   if (router.pathname === "/signUp") return <Content>{children}</Content>;
+  else if (router.pathname === "/login") return <>{children}</>;
 
   return (
     <ALayout>

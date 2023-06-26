@@ -1,0 +1,15 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #2148c0;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/BG.svg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

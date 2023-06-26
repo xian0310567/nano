@@ -1,4 +1,5 @@
 import React from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import { Button, Form, Input } from "antd";
 
@@ -8,6 +9,8 @@ import styled from "./lib/registerForm.module.css";
 
 const LoginForm = () => {
   const { registerUser } = useRegistration();
+  const { data: session } = useSession();
+
   return (
     <Form
       labelCol={{ span: 8 }}

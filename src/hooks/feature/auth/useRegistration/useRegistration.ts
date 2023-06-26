@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 
 import { message } from "antd";
 
-import { encodeText } from "@/hooks/common/useCrypto";
-
 import { RegisterUserProps } from "./lib/useRegistration.interface";
 
 const useRegistration = () => {
@@ -21,7 +19,7 @@ const useRegistration = () => {
       .post("/api/auth", {
         id: userId,
         email,
-        password: encodeText(password),
+        password,
         name,
       })
       .then(() => {
