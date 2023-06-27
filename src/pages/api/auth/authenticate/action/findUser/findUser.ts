@@ -21,8 +21,9 @@ export default async function handler(
 
   const user = await prisma.user.findMany({
     where: {
-      userId: userId,
-      password: crypto.AES.encrypt(password, "aa").toString(),
+      userId,
+      // password: crypto.AES.encrypt(password, "aa").toString(),
+      password,
     },
   });
 

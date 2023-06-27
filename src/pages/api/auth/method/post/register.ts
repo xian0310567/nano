@@ -16,7 +16,11 @@ export default async function handler(
       userId: id,
       email: email,
       name: name,
-      password: crypto.AES.encrypt(password, "aa").toString(),
+      // password: crypto.AES.encrypt(
+      //   password,
+      //   process.env.NANO_PRIVATE_KEY ?? ""
+      // ).toString(),
+      password,
     },
   });
 
