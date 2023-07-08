@@ -1,9 +1,10 @@
 // export { default } from "next-auth/middleware";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+// import { useSession, signIn, signOut } from "next-auth/react";
 
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getServerSession } from "next-auth/next";
 
 // This function can be marked `async` if using `await` inside
 export const middleware = (request: NextRequest) => {
