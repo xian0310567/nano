@@ -1,15 +1,20 @@
-// export { default } from "next-auth/middleware";
+import { getToken } from "next-auth/jwt";
+import { NextResponse, NextRequest } from "next/server";
 
-// import { useSession, signIn, signOut } from "next-auth/react";
+const secret = process.env.NANO_PRIVATE_KEY;
 
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { getServerSession } from "next-auth/next";
+export async function middleware(req: NextRequest) {
+  const session = await getToken({ req, secret, raw: true });
+  const { pathname } = req.nextUrl;
 
-// This function can be marked `async` if using `await` inside
-export const middleware = (request: NextRequest) => {
-  //   return NextResponse.redirect(new URL("/api/auth/signin", request.url));
+  console.log("aa", session);
+
+  if (!session && !pathname.startsWith("/login")) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ["/"],
 };
-
-// See "Matching Paths" below to learn more
-// export const config = { matcher: ["/signUp", "/logina"] };
