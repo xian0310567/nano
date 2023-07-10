@@ -2,14 +2,19 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NANO_PRIVATE_KEY,
   providers: [
     CredentialsProvider({
-      name: "email-password-credential",
+      name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "test@test.com" },
+        email: {
+          label: "userId",
+          type: "userId",
+        },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any, req: any) {
+        console.log(credentials);
         return credentials;
       },
     }),

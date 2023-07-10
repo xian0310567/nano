@@ -6,8 +6,12 @@ import Header from "@/components/layout/Header";
 import Content from "@/components/layout/Content";
 import Sider from "@/components/layout/Sider";
 
+import useAuthValidation from "@/hooks/feature/auth/useAuthValidation";
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+
+  useAuthValidation();
 
   if (router.pathname === "/signUp") return <Content>{children}</Content>;
   else if (router.pathname === "/login") return <>{children}</>;

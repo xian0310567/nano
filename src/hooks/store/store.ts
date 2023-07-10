@@ -1,7 +1,9 @@
 import React from "react";
 import { atom } from "recoil";
 
-export const defaultUsrState = atom({
+import { DefaultUser } from "./lib/store.interface";
+
+export const defaultUserState = atom<DefaultUser>({
   key: "defaultUserState",
   default: {
     key: 0,

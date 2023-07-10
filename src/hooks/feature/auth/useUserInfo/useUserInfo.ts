@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { signIn, SignInResponse } from "next-auth/react";
 
-import { UserInfoProps, UserLoginCallback } from "./lib/useUserInfo.interface";
+import { UserInfoProps } from "./lib/useUserInfo.interface";
 
 const useUserInfo = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const useUserInfo = () => {
 
   const userInfo = async () => {
     signIn("credentials", {
-      userId,
+      email: userId,
       password,
       redirect: false,
     }).then((res) => {
