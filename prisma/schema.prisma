@@ -23,6 +23,16 @@ model User {
   standby        Standby[]
 }
 
+model Items {
+  id            Int        @id @default(autoincrement())
+  name          String
+  standby       Standby    @relation(fields: [uploader], references: [id])
+  uploader      Int        @unique
+  link          String
+  setPrice      Int
+  description   String  
+}
+
 model Standby {
   id            Int     @id @default(autoincrement())
   url           String
@@ -30,6 +40,7 @@ model Standby {
   author        User    @relation(fields: [authorId], references: [id])
   authorId      Int
   state         StandbyState  @default(upload)
+  items         Items?
 }
 
 enum StandbyState {
