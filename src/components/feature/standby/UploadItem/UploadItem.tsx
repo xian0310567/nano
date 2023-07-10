@@ -2,7 +2,7 @@ import React from "react";
 
 import { Modal, Input } from "antd";
 
-import useAddStandby from "@/hooks/feature/standby/useAddStandby";
+import useUploadStandby from "@/hooks/feature/standby/useUploadStandby";
 
 const UploadItem = ({
   onOpen,
@@ -12,7 +12,7 @@ const UploadItem = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [url, setUrl] = React.useState<string>("");
-  const { standby, addStandby } = useAddStandby();
+  const { standby, addStandby } = useUploadStandby();
 
   return (
     <Modal

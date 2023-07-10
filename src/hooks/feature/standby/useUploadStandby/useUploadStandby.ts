@@ -1,16 +1,20 @@
 import React from "react";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+
+import { defaultUserState } from "@/hooks/store";
 
 import { Standby } from "@prisma/client";
 
-const useAddStandby = () => {
+const useUploadStandby = () => {
+  const [userState] = useRecoilState(defaultUserState);
   const [standby, setStandby] = React.useState<Standby | undefined>(undefined);
 
   const addStandby = (url: string) => {
     axios
       .post<Standby>("/api/standby", {
         url: url,
-        userId: 1,
+        userId: userState.key,
       })
       .then((res) => {
         setStandby(res.data);
@@ -20,4 +24,4 @@ const useAddStandby = () => {
   return { standby, addStandby };
 };
 
-export default useAddStandby;
+export default useUploadStandby;
