@@ -6,13 +6,15 @@ import { defaultUserState } from "@/hooks/store";
 
 import { GetItemsCallback } from "./lib/useGetStandbyItems.interface";
 import { Standby } from "@prisma/client";
+import { DefaultUser } from "@/hooks/store";
 
-const useStandbyItems = (): GetItemsCallback => {
-  const [defaultUser] = useRecoilState(defaultUserState);
+const useStandbyItems = (defaultUser?: DefaultUser): GetItemsCallback => {
   const [dataSource, setDataSource] = React.useState<Standby[] | undefined>();
 
+  const findUser = defaultUser ? `?user=${defaultUser.key}` : "";
+
   React.useEffect(() => {
-    axios.get<Standby[]>(`/api/standby?user=${defaultUser.key}`).then((res) => {
+    axios.get<Standby[]>(`/api/standby${findUser}`).then((res) => {
       setDataSource(res.data);
     });
   }, [defaultUser]);

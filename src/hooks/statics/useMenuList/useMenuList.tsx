@@ -12,6 +12,10 @@ const useMenuList = () => {
       key: 2,
       label: <Link href="/standby">상품 대기</Link>,
     },
+    {
+      key: 3,
+      label: <Link href="">소싱 검수</Link>,
+    },
   ];
 
   return { navMenu };
