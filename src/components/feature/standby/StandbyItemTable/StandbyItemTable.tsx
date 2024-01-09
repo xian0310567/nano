@@ -3,18 +3,18 @@ import React from "react";
 import { Table } from "antd";
 
 import useGetStandbyItems from "@/hooks/feature/standby/useGetStandbyItems";
-import getStandbyTableColumn from "@/hooks/statics/useGetStandbyTableColumn";
+import column from "./lib/column";
 
 const StandbyItemTable = () => {
   const { dataSource, getStandbyItems } = useGetStandbyItems();
-  const { columns } = getStandbyTableColumn();
+  const { columns } = column();
 
   React.useEffect(() => {
     getStandbyItems();
   }, []);
 
   return (
-    <Table dataSource={dataSource} columns={columns} scroll={{ x: 500 }} />
+    <Table dataSource={dataSource} columns={columns} scroll={{ x: 300 }} />
   );
 };
 

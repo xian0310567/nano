@@ -3,25 +3,23 @@ import moment from "moment";
 
 import UploadState from "@/components/feature/standby/UploadState";
 
-import { Standby } from "@prisma/client";
+import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
-const useGetStandbyTableColumn = (): {
+const column = (): {
   columns: ColumnsType<Standby>;
 } => {
   const columns: ColumnsType<Standby> = [
     {
-      title: "id",
-      key: "key",
+      title: "",
+      key: "id",
       dataIndex: "id",
-      width: "5%",
+      width: "20px",
     },
     {
       title: "링크",
-      width: "30%",
       key: "url",
       dataIndex: "url",
-      fixed: "left",
       render: (text) => (
         <a
           href={text}
@@ -39,15 +37,28 @@ const useGetStandbyTableColumn = (): {
     },
     {
       title: "업로드",
-      key: "uploadDate",
-      dataIndex: "uploadDate",
-      width: "10%",
-      render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>,
+      key: "created_at",
+      dataIndex: "created_at",
+      width: "120px",
+      render: (text) => (
+        <span
+          style={{
+            display: "block",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+          }}
+        >
+          {moment(text).format("YYYY-MM-DD")}
+        </span>
+      ),
     },
     {
       title: "상태",
       key: "state",
       dataIndex: "state",
+      width: "80px",
+      fixed: "right",
       render: (text) => <UploadState state={text} />,
       onFilter: (value, record) => record.state == value,
       filters: [
@@ -70,4 +81,4 @@ const useGetStandbyTableColumn = (): {
   return { columns };
 };
 
-export default useGetStandbyTableColumn;
+export default column;

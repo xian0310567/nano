@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Tag } from "antd";
-import { StandbyState } from "@prisma/client";
+import { StandbyState } from "@/hooks/feature/standby/useGetStandbyItems";
 
 const UploadState = ({ state }: { state: StandbyState }) => {
   const colorRender = {

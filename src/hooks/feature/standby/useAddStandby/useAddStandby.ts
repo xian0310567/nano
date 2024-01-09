@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { Standby } from "@prisma/client";
+import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
 
 const useAddStandby = () => {
   const [standby, setStandby] = React.useState<Standby | undefined>(undefined);

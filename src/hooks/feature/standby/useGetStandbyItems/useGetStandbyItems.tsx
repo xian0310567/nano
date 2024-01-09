@@ -1,16 +1,20 @@
 import React from "react";
-import axios from "axios";
+import { supabase } from "@/hooks/data";
 
-import { GetItemsCallback } from "./lib/useGetStandbyItems.interface";
-import { Standby } from "@prisma/client";
+import { Standby, GetItemsCallback } from "./useGetStandbyItems.types";
 
 const useGetStandbyItems = (): GetItemsCallback => {
   const [dataSource, setDataSource] = React.useState<Standby[]>();
 
-  const getStandbyItems = () => {
-    axios.get<Standby[]>(`/api/standby?user=${1}`).then((res) => {
-      setDataSource(res.data);
-    });
+  const getStandbyItems = async () => {
+    const { data, error } = await supabase
+      .from("standby")
+      .select("*")
+      .returns<Standby[]>();
+
+    if (data) {
+      setDataSource(data);
+    }
   };
 
   return { dataSource, getStandbyItems };
