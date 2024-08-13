@@ -4,24 +4,20 @@ import { Modal, Input } from "antd";
 
 import useAddStandby from "@/hooks/feature/standby/useAddStandby";
 
-const UploadItem = ({
-  onOpen,
-  setOpen,
-}: {
-  onOpen: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+import { UploadItemProps } from "./UploadItem.type";
+
+const UploadItem = (props: UploadItemProps) => {
   const [url, setUrl] = React.useState<string>("");
   const { standby, addStandby } = useAddStandby();
 
   return (
     <Modal
-      open={onOpen}
+      open={props.onOpen}
       onOk={() => {
         addStandby(url);
       }}
       onCancel={() => {
-        setOpen(false);
+        props.setOpen(false);
       }}
     >
       <Input
