@@ -1,23 +1,21 @@
-import React from "react";
-import axios from "axios";
+import { useState } from "react";
 
+import { supabase } from "@/hooks/data";
 import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
 
 const useAddStandby = () => {
-  const [standby, setStandby] = React.useState<Standby | undefined>(undefined);
+  const [standby, setStandby] = useState<Standby | undefined>();
 
-  const addStandby = (url: string) => {
-    axios
-      .post<Standby>("/api/standby", {
-        url: url,
-        userId: 1,
-      })
-      .then((res) => {
-        setStandby(res.data);
-      });
+  const addStandby = async (url: string) => {
+    const { data } = await supabase
+      .from("standby")
+      .insert({ url, state: "upload" })
+      .select()
+      .returns<Standby>();
+
+    if (data) setStandby(data);
   };
-
-  return { standby, addStandby };
+  return { addStandby };
 };
 
 export default useAddStandby;

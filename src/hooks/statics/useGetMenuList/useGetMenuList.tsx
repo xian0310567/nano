@@ -10,7 +10,7 @@ const useGetMenuList = () => {
     },
     {
       key: 2,
-      label: <Link href="/standby">상품 대기</Link>,
+      label: <Link href="/standby">검수 대기</Link>,
     },
   ];
 

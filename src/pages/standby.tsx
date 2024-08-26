@@ -2,7 +2,7 @@ import React from "react";
 
 import { Space, Button } from "antd";
 
-import UploadItemModal from "@/components/feature/standby/UploadItem";
+import UploadItemModal from "@/components/feature/standby/UploadItemModal";
 import ItemsTable from "@/components/feature/standby/StandbyItemTable";
 
 import openUploadModal from "@/hooks/feature/standby/useOpenUploadModal";
