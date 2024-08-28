@@ -2,14 +2,12 @@ import React from "react";
 
 import { Modal, Input } from "antd";
 
-import useAddStandby from "@/hooks/feature/standby/useAddStandby";
-
 import { UploadItemModalProps } from "./UploadItemModal.type";
 
 const UploadItem = (props: UploadItemModalProps) => {
   const [url, setUrl] = React.useState<string>("");
 
-  const { addStandby } = useAddStandby();
+  const { standby, addStandby } = props.addStandBy;
 
   return (
     <Modal
@@ -17,6 +15,7 @@ const UploadItem = (props: UploadItemModalProps) => {
       open={props.onOpen}
       onOk={() => {
         addStandby(url);
+        props.setOpen(false);
       }}
       onCancel={() => {
         props.setOpen(false);

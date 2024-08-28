@@ -2,16 +2,13 @@ import React from "react";
 
 import { Table } from "antd";
 
-import useGetStandbyItems from "@/hooks/feature/standby/useGetStandbyItems";
 import column from "./lib/column";
 
-const StandbyItemTable = () => {
-  const { dataSource, getStandbyItems } = useGetStandbyItems();
-  const { columns } = column();
+import { StandbyItemTableProps } from "./StandbyItemTable.type";
 
-  React.useEffect(() => {
-    getStandbyItems();
-  }, []);
+const StandbyItemTable = (props: StandbyItemTableProps) => {
+  const { dataSource, getStandbyItems } = props.getStandby;
+  const { columns } = column();
 
   return (
     <Table dataSource={dataSource} columns={columns} scroll={{ x: 300 }} />
