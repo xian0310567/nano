@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { message } from "antd";
 
 import useRetrieveSession from "@/hooks/feature/auth/useRetrieveSession";
+// import useRefreshSession from "@/hooks/feature/auth/useRefreshSession";
 
 const RedirectProvider = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const RedirectProvider = () => {
     const validateSession = async () => {
       const { data } = await retrieveSession();
 
-      if (!data.session?.access_token) {
+      if (data.session && !data.session.access_token) {
         router.push("/login");
         messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
       }
