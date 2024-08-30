@@ -11,13 +11,13 @@ import useAddStandby from "@/hooks/feature/standby/useAddStandby";
 
 import styled from "@/styles/standby.module.css";
 
-const standby = () => {
+const Standby = () => {
   const addStandby = useAddStandby();
   const getStandby = useGetStandbyItems();
   const { uploadModal, setUploadModal } = openUploadModal();
 
   useEffect(() => {
-    getStandby.getStandbyItems();
+    getStandby.getStandbyItems("upload");
   }, [addStandby.standby]);
 
   return (
@@ -43,4 +43,4 @@ const standby = () => {
   );
 };
 
-export default standby;
+export default Standby;

@@ -9,5 +9,5 @@ export type StandbyState = "reject" | "upload" | "complete";
 
 export type GetItemsCallback = {
   dataSource: Standby[] | undefined;
-  getStandbyItems: () => void;
+  getStandbyItems: (state: StandbyState) => void;
 };

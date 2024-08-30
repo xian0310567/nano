@@ -10,7 +10,17 @@ const useGetMenuList = () => {
     },
     {
       key: 2,
-      label: <Link href="/standby">검수 대기</Link>,
+      label: "소싱",
+      children: [
+        {
+          key: 3,
+          label: <Link href="/user-items/standby">검수 대기</Link>,
+        },
+        {
+          key: 4,
+          label: <Link href="/user-items/complate">검수 완료</Link>,
+        },
+      ],
     },
   ];
 
