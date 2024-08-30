@@ -11,7 +11,7 @@ const Sider = () => {
 
   return (
     <Sider className={styled.sider}>
-      <Menu className={styled.menu} items={navMenu} />
+      <Menu className={styled.menu} items={navMenu} mode="inline" />
     </Sider>
   );
 };
