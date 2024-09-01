@@ -8,7 +8,7 @@ import { StandbyItemTableProps } from "./StandbyItemTable.type";
 
 const StandbyItemTable = (props: StandbyItemTableProps) => {
   const { dataSource, getStandbyItems } = props.getStandby;
-  const { columns } = column();
+  const { columns } = column({ getStandbyItems });
 
   return (
     <Table dataSource={dataSource} columns={columns} scroll={{ x: 300 }} />

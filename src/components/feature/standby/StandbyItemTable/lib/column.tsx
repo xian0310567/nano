@@ -2,19 +2,24 @@ import React from "react";
 import moment from "moment";
 
 import UploadState from "@/components/feature/standby/UploadState";
+import UploadDeleteButton from "@/components/feature/standby/UploadDeleteButton";
 
-import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
+import {
+  Standby,
+  GetItemsCallback,
+} from "@/hooks/feature/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
-const column = (): {
-  columns: ColumnsType<Standby>;
-} => {
+type ColumnProps = { getStandbyItems: GetItemsCallback["getStandbyItems"] };
+type ColumnCallback = { columns: ColumnsType<Standby> };
+
+const column = (props: ColumnProps): ColumnCallback => {
   const columns: ColumnsType<Standby> = [
     {
       title: "",
       key: "id",
       dataIndex: "id",
-      width: "20px",
+      width: 50,
     },
     {
       title: "링크",
@@ -75,6 +80,18 @@ const column = (): {
           value: "complete",
         },
       ],
+    },
+    {
+      key: "delete",
+      title: "",
+      width: 80,
+      align: "center",
+      render: (record: Standby) => (
+        <UploadDeleteButton
+          record={record}
+          getStandbyItems={props.getStandbyItems}
+        />
+      ),
     },
   ];
 

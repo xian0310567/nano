@@ -2,6 +2,7 @@ export type Standby = {
   id: number;
   url: string;
   created_at: Date;
+  user_aid: string;
   state: StandbyState;
 };
 
