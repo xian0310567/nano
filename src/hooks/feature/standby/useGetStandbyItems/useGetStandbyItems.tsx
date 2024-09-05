@@ -1,5 +1,5 @@
 import React from "react";
-import { supabase } from "@/hooks/data";
+import axios from "axios";
 
 import useRetrieveSession from "@/hooks/feature/auth/useRetrieveSession";
 
@@ -16,15 +16,10 @@ const useGetStandbyItems = (): GetItemsCallback => {
   const getStandbyItems = async (state: StandbyState) => {
     const session = await retrieveSession();
 
-    const { data, error } = await supabase
-      .from("standby")
-      .select("*")
-      .eq("state", state)
-      .eq("user_aid", session.data.session?.user.id)
-      .returns<Standby[]>();
+    const res = await axios.get<Standby[]>("/api/standby");
 
-    if (data) {
-      setDataSource(data);
+    if (res.data) {
+      setDataSource(res.data);
     }
   };
 

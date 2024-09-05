@@ -1,19 +1,18 @@
-import { supabase } from "@/hooks/data";
+import axios from "axios";
 
 import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
 
 const useDeleteUserItem = () => {
   const deleteUserItem = async (record: Standby) => {
-    const { data, error } = await supabase
-      .from("standby")
-      .delete()
-      .eq("id", record.id);
+    const res = await axios.delete("/api/standby", {
+      params: {
+        record: record.id,
+      },
+    });
 
-    if (data) {
+    if (res.data) {
       console.log("삭제");
     }
-
-    return { data, error };
   };
 
   return { deleteUserItem };

@@ -1,22 +1,19 @@
 import { useRouter } from "next/router";
-import { supabase } from "@/hooks/data";
-
-import useSessionStorage from "@/hooks/common/useSessionStorage";
+import axios from "axios";
 
 import { SignInStateCallback } from "../types/useSignInState.type";
 import { SignInCallback } from "../types/services/signIn.type";
 
 const service = (state: SignInStateCallback): SignInCallback => {
   const router = useRouter();
-  const { setSessionStorage } = useSessionStorage();
 
   const signIn = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const res = await axios.post("/api/auth/login", {
       email: state.getter.userName,
       password: state.getter.passWord,
     });
 
-    if (data && data.session) {
+    if (res.status === 200) {
       router.push("/");
     }
   };
