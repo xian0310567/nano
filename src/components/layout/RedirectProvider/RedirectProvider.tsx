@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 
 import { message } from "antd";
@@ -11,20 +12,35 @@ const RedirectProvider = () => {
   const { retrieveSession } = useRetrieveSession();
   const [messageApi, contextHolder] = message.useMessage();
 
-  useEffect(() => {
-    if (router.pathname === "/login") return;
-
-    const validateSession = async () => {
-      const { data } = await retrieveSession();
-
-      if (data.session && !data.session.access_token) {
+  axios.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    async (err) => {
+      if (err.response && err.response.status === 401) {
         router.push("/login");
-        messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
-      }
-    };
+        // messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
 
-    validateSession();
-  }, [router]);
+        // 잠시 딜레이를 줘서 메시지가 보이도록 한 후 리다이렉트
+      }
+      return Promise.reject(err);
+    }
+  );
+
+  // useEffect(() => {
+  //   if (router.pathname === "/login") return;
+
+  //   const validateSession = async () => {
+  //     const { data } = await retrieveSession();
+
+  //     if (data.session && !data.session.access_token) {
+  //       router.push("/login");
+  //       messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
+  //     }
+  //   };
+
+  //   validateSession();
+  // }, [router]);
 
   return <>{contextHolder}</>;
 };
