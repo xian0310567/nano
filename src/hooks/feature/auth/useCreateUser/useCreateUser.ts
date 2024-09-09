@@ -4,10 +4,9 @@ import useCreateUserService from "./services";
 import { CreateUserCallback } from "./types/useCreateUser.type";
 
 const useCreateUser = (): CreateUserCallback => {
-  const state = useCreateUserState();
-  const service = useCreateUserService(state);
+  const service = useCreateUserService();
 
-  return { state: state.getter, ...service };
+  return service;
 };
 
 export default useCreateUser;

@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import me from "./services/me";
+import createUser from "./services/createUser";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
-    case "GET":
-      return me(req, res);
+    case "POST":
+      return createUser(req, res);
     default:
       res.status(404).send("not found method");
   }

@@ -11,7 +11,12 @@ const StandbyItemTable = (props: StandbyItemTableProps) => {
   const { columns } = column({ getStandbyItems });
 
   return (
-    <Table dataSource={dataSource} columns={columns} scroll={{ x: 300 }} />
+    <Table
+      dataSource={dataSource}
+      columns={columns}
+      scroll={{ x: 300 }}
+      loading={!dataSource}
+    />
   );
 };
 

@@ -1,14 +1,11 @@
 import createUserService from "./createUser";
-import setRegisterInfoService from "./setRegisterInfo";
 
-import { CreateUserStateCallback } from "../types/useCreateUserState";
 import { CreateUserServicesCallback } from "../types/useCreateUserService.type";
 
-const index = (state: CreateUserStateCallback): CreateUserServicesCallback => {
-  const { createUser } = createUserService(state);
-  const { setRegisterInfo } = setRegisterInfoService(state);
+const index = (): CreateUserServicesCallback => {
+  const { createUser } = createUserService();
 
-  return { createUser, setRegisterInfo };
+  return { createUser };
 };
 
 export default index;

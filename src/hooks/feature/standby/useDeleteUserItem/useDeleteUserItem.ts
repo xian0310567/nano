@@ -1,4 +1,5 @@
 import axios from "axios";
+import { message } from "antd";
 
 import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
 
@@ -11,7 +12,7 @@ const useDeleteUserItem = () => {
     });
 
     if (res.data) {
-      console.log("삭제");
+      message.success(`${record.id}번 항목이 삭제되었습니다.`);
     }
   };
 

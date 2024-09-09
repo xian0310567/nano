@@ -9,6 +9,7 @@ import Sider from "@/components/layout/Sider";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const route = useRouter();
   if (route.pathname === "/login") return <>{children}</>;
+  if (route.pathname === "/signup") return <>{children}</>;
 
   return (
     <ALayout>

@@ -18,7 +18,7 @@ const DeleteModal = (props: DeleteModalProps) => {
   return (
     <Modal
       open={props.open}
-      onOk={() => deleteHandler}
+      onOk={deleteHandler}
       onCancel={() => props.setOpen(false)}
       closeIcon
       title={`${props.record.id}번을 항목 삭제하시겠습니까?`}
