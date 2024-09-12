@@ -1,6 +1,8 @@
 import React from "react";
 import moment from "moment";
 
+import UploadState from "@/components/feature/user-items/standby/UploadState";
+
 import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
@@ -50,6 +52,20 @@ const column = (): ColumnCallback => {
           {moment(text).format("YYYY-MM-DD")}
         </span>
       ),
+    },
+    {
+      title: "단가",
+      key: "state",
+      dataIndex: "upload_price",
+      width: "80px",
+    },
+    {
+      title: "상태",
+      key: "state",
+      dataIndex: "state",
+      width: "80px",
+      fixed: "right",
+      render: (text) => <UploadState state={text} />,
     },
   ];
 

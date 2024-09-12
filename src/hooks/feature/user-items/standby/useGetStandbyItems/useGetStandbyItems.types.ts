@@ -3,6 +3,7 @@ export type Standby = {
   url: string;
   created_at: Date;
   user_aid: string;
+  upload_price: number;
   state: StandbyState;
 };
 

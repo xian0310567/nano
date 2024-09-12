@@ -16,7 +16,7 @@ const useGetStandbyItems = (): GetItemsCallback => {
   const getStandbyItems = async (state: StandbyState) => {
     const session = await retrieveSession();
 
-    const res = await axios.get<Standby[]>("/api/standby");
+    const res = await axios.get<Standby[]>("/api/user-item/standby");
 
     if (res.data) {
       setDataSource(res.data);

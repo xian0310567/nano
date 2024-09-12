@@ -2,10 +2,18 @@ import { Table } from "antd";
 
 import completeITemTableColumn from "./CompleteItemTable.column";
 
-const CompleteItemTable = () => {
+import { CompleteItemTableProps } from "./ComplateItemTable.type";
+
+const CompleteItemTable = (props: CompleteItemTableProps) => {
   const { columns } = completeITemTableColumn();
 
-  return <Table dataSource={[]} columns={columns} />;
+  return (
+    <Table
+      loading={!props.completeState}
+      dataSource={props.completeState}
+      columns={columns}
+    />
+  );
 };
 
 export default CompleteItemTable;
