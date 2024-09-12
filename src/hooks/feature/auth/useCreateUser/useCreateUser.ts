@@ -1,4 +1,3 @@
-import useCreateUserState from "./useCreateUserState";
 import useCreateUserService from "./services";
 
 import { CreateUserCallback } from "./types/useCreateUser.type";
