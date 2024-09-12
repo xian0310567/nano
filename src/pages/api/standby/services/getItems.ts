@@ -3,7 +3,7 @@ import { supabase } from "@/hooks/data";
 
 import getUser from "@/pages/api/common/getUser";
 
-import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
+import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 export default async function handler(
   req: NextApiRequest,

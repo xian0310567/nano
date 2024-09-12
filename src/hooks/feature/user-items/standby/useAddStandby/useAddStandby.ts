@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import axios from "axios";
 
-import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
+import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 import { AddStandByCallback } from "./useAddStandby.type";
 
 const useAddStandby = (): AddStandByCallback => {

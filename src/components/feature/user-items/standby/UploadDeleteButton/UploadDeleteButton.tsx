@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Button } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
-import DeleteModal from "@/components/feature/standby/DeleteModal";
+import DeleteModal from "@/components/feature/user-items/standby/DeleteModal";
 
 import { UploadDeleteButtonProps } from "./UploadDeleteButton.type";
 

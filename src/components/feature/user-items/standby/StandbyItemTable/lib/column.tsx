@@ -1,13 +1,13 @@
 import React from "react";
 import moment from "moment";
 
-import UploadState from "@/components/feature/standby/UploadState";
-import UploadDeleteButton from "@/components/feature/standby/UploadDeleteButton";
+import UploadState from "@/components/feature/user-items/standby/UploadState";
+import UploadDeleteButton from "@/components/feature/user-items/standby/UploadDeleteButton";
 
 import {
   Standby,
   GetItemsCallback,
-} from "@/hooks/feature/standby/useGetStandbyItems";
+} from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
 type ColumnProps = { getStandbyItems: GetItemsCallback["getStandbyItems"] };

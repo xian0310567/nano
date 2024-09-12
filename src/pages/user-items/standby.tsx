@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 import { Space, Button } from "antd";
 
-import UploadItemModal from "@/components/feature/standby/UploadItemModal";
-import ItemsTable from "@/components/feature/standby/StandbyItemTable";
+import UploadItemModal from "@/components/feature/user-items/standby/UploadItemModal";
+import ItemsTable from "@/components/feature/user-items/standby/StandbyItemTable";
 
-import openUploadModal from "@/hooks/feature/standby/useOpenUploadModal";
-import useGetStandbyItems from "@/hooks/feature/standby/useGetStandbyItems";
-import useAddStandby from "@/hooks/feature/standby/useAddStandby";
+import openUploadModal from "@/hooks/feature/user-items/standby/useOpenUploadModal";
+import useGetStandbyItems from "@/hooks/feature/user-items/standby/useGetStandbyItems";
+import useAddStandby from "@/hooks/feature/user-items/standby/useAddStandby";
 
 import styled from "@/styles/standby.module.css";
 

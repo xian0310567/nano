@@ -1,4 +1,4 @@
-import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
+import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 export type AddStandByCallback = {
   standby: Standby | undefined;

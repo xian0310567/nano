@@ -1,6 +1,6 @@
 import { Modal, Typography } from "antd";
 
-import useDeleteUserItem from "@/hooks/feature/standby/useDeleteUserItem";
+import useDeleteUserItem from "@/hooks/feature/user-items/standby/useDeleteUserItem";
 
 import { DeleteModalProps } from "./DeleteModal.type";
 

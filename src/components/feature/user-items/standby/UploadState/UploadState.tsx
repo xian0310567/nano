@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Tag } from "antd";
-import { StandbyState } from "@/hooks/feature/standby/useGetStandbyItems";
+import { StandbyState } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 const UploadState = ({ state }: { state: StandbyState }) => {
   const colorRender = {

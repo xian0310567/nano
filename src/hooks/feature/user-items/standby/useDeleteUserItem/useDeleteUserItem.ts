@@ -1,7 +1,7 @@
 import axios from "axios";
 import { message } from "antd";
 
-import { Standby } from "@/hooks/feature/standby/useGetStandbyItems";
+import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 const useDeleteUserItem = () => {
   const deleteUserItem = async (record: Standby) => {

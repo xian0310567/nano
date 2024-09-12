@@ -7,13 +7,9 @@ import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Standby | string>
+  res: NextApiResponse<Standby[] | string>
 ) {
   const { access_token, refresh_token } = req.cookies;
-  const { record } = req.query;
-
-  console.log(access_token);
-  console.log(req.body);
 
   const user = await getUser({ access_token, refresh_token });
 
@@ -21,12 +17,12 @@ export default async function handler(
 
   const { data, error } = await supabase
     .from("standby")
-    .delete()
-    .eq("id", record)
-    .select()
-    .returns<Standby>();
+    .select("*")
+    .eq("state", "complete")
+    .eq("user_aid", user.id)
+    .returns<Standby[]>();
 
-  if (!data) return res.status(500).send("not found stanby items");
+  if (!data) return res.status(204).send([]);
 
   return res.status(200).send(data);
 }

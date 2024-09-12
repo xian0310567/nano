@@ -1,7 +1,7 @@
 import {
   Standby,
   GetItemsCallback,
-} from "@/hooks/feature/standby/useGetStandbyItems";
+} from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 export type UploadDeleteButtonProps = {
   record: Standby;
