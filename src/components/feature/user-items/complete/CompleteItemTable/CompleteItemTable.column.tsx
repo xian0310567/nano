@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 
+import Link from "next/link";
 import UploadState from "@/components/feature/user-items/standby/UploadState";
 
 import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
@@ -21,7 +22,7 @@ const column = (): ColumnCallback => {
       key: "url",
       dataIndex: "url",
       render: (text) => (
-        <a
+        <Link
           href={text}
           target="_blank"
           style={{
@@ -32,7 +33,7 @@ const column = (): ColumnCallback => {
           }}
         >
           {text}
-        </a>
+        </Link>
       ),
     },
     {

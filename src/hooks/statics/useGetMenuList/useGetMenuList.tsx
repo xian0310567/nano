@@ -20,6 +20,10 @@ const useGetMenuList = () => {
           key: 4,
           label: <Link href="/user-items/complate">검수 완료</Link>,
         },
+        {
+          key: 5,
+          label: <Link href="/user-items/reject">업로드 거절</Link>,
+        },
       ],
     },
   ];

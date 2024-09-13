@@ -5,6 +5,7 @@ export type Standby = {
   user_aid: string;
   upload_price: number;
   state: StandbyState;
+  description: string;
 };
 
 export type StandbyState = "reject" | "upload" | "complete";

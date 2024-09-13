@@ -3,18 +3,13 @@ import moment from "moment";
 
 import Link from "next/link";
 import UploadState from "@/components/feature/user-items/standby/UploadState";
-import UploadDeleteButton from "@/components/feature/user-items/standby/UploadDeleteButton";
 
-import {
-  Standby,
-  GetItemsCallback,
-} from "@/hooks/feature/user-items/standby/useGetStandbyItems";
+import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 import type { ColumnsType } from "antd/es/table";
 
-type ColumnProps = { getStandbyItems: GetItemsCallback["getStandbyItems"] };
 type ColumnCallback = { columns: ColumnsType<Standby> };
 
-const column = (props: ColumnProps): ColumnCallback => {
+const column = (): ColumnCallback => {
   const columns: ColumnsType<Standby> = [
     {
       title: "",
@@ -66,33 +61,6 @@ const column = (props: ColumnProps): ColumnCallback => {
       width: "80px",
       fixed: "right",
       render: (text) => <UploadState state={text} />,
-      onFilter: (value, record) => record.state == value,
-      filters: [
-        {
-          text: "대기중",
-          value: "upload",
-        },
-        {
-          text: "업로드 성공",
-          value: "reject",
-        },
-        {
-          text: "업로드 거절",
-          value: "complete",
-        },
-      ],
-    },
-    {
-      key: "delete",
-      title: "",
-      width: 80,
-      align: "center",
-      render: (record: Standby) => (
-        <UploadDeleteButton
-          record={record}
-          getStandbyItems={props.getStandbyItems}
-        />
-      ),
     },
   ];
 
