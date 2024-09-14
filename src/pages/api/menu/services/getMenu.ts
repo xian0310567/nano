@@ -24,7 +24,13 @@ export default async function handler(
   // master
   if (role === "admin") {
     const menu: Menu[] = [
-      { key: 1, label: "상품 목록", link: "/items" },
+      {
+        key: 1,
+        label: "상품 목록",
+        children: [
+          { key: "1-1", label: "업로드 완료", link: "/product/upload" },
+        ],
+      },
       {
         key: 2,
         label: "소싱",

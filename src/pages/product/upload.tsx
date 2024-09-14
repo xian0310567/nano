@@ -1,11 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 
 import ItemsTable from "@/components/feature/product/ItemsTable";
+import useGetProduct from "@/hooks/feature/product/useGetProducts";
 
 const items = () => {
+  const product = useGetProduct();
+
+  useEffect(() => {
+    product.getProducts();
+  }, []);
+
   return (
     <>
-      <ItemsTable />
+      <ItemsTable products={product.product} />
     </>
   );
 };

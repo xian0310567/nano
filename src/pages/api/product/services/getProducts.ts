@@ -3,27 +3,34 @@ import { supabase } from "@/hooks/data";
 
 import getUser from "@/pages/api/common/getUser";
 
-import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
+export type Product = {
+  id: number;
+  name: string;
+  url: string;
+  price: number;
+  uploader: string;
+  created_at: string;
+  standby: string;
+};
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Standby | string>
+  res: NextApiResponse<Product[] | string>
 ) {
   const { access_token, refresh_token } = req.cookies;
-  const { record } = req.query;
+  const { name } = req.query;
 
   const user = await getUser({ access_token, refresh_token });
 
   if (!user) return res.status(401).send("Authentication failed");
 
   const { data, error } = await supabase
-    .from("standby")
-    .delete()
-    .eq("id", record)
-    .select()
-    .returns<Standby>();
+    .from("product")
+    .select("*")
+    .ilike("name", `%${name}%`)
+    .returns<Product[]>();
 
-  if (!data) return res.status(500).send("not found stanby items");
+  if (!data) return res.status(204).send("not found product lists");
 
   return res.status(200).send(data);
 }

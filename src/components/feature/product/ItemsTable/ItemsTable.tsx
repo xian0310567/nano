@@ -1,21 +1,25 @@
 import React from "react";
+
 import { Table } from "antd";
+import Link from "next/link";
 
-import getItems from "@/hooks/feature/items/useGetItems";
+import ItemsTableColumn from "./ItemTable.column";
 
-const ItemsTable = () => {
-  const { dataSource, columns } = getItems();
+import { ItemsTableProps } from "./ItemsTable.type";
+
+const ItemsTable = (props: ItemsTableProps) => {
+  const columns = ItemsTableColumn();
 
   return (
     <Table
-      dataSource={dataSource}
+      loading={!props.products}
+      dataSource={props.products}
       columns={columns}
-      scroll={{ x: 3000 }}
       expandable={{
         expandedRowRender: (record) => (
-          <a style={{ margin: 0 }} href={record.link} target="_blank">
-            {record.link}
-          </a>
+          <Link style={{ margin: 0 }} href={record.url} target="_blank">
+            {record.url}
+          </Link>
         ),
       }}
     />
