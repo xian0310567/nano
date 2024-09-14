@@ -11,7 +11,7 @@ export const Container = styled.div`
   width: 100%;
 
   position: absolute;
-  top: 80%;
+  top: 70%;
 `;
 
 export const Button = styled(AtomicButton)`

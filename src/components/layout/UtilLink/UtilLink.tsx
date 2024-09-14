@@ -4,6 +4,7 @@ import { Container, Button } from "./UtilLink.styled";
 
 import geditor from "@/assets/geditor.ico";
 import taobao from "@/assets/taobao.ico";
+import itemscout from "@/assets/itemscout.ico";
 
 const UtilLink = () => {
   return (
@@ -21,6 +22,18 @@ const UtilLink = () => {
         }
       >
         <Link href="https://world.taobao.com/">Taobao</Link>
+      </Button>
+      <Button
+        icon={
+          <Image
+            src={itemscout}
+            width={16}
+            height={16}
+            alt="아이템스카우트 바로가기"
+          />
+        }
+      >
+        <Link href="https://itemscout.io/">ItemScout</Link>
       </Button>
     </Container>
   );

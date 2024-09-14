@@ -1,15 +1,15 @@
-import React from "react";
-
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Spin } from "antd";
 import UtilLink from "@/components/layout/UtilLink";
 
-import getMenuList from "@/hooks/statics/useGetMenuList";
+import column from "./Sider.column";
 
 import styled from "./lib/sider.module.css";
 
-const Sider = () => {
+import { SiderProps } from "./Sider.type";
+
+const Sider = (props: SiderProps) => {
   const { Sider } = Layout;
-  const { navMenu } = getMenuList();
+  const navMenu = column(props.menu);
 
   return (
     <Sider
@@ -17,7 +17,9 @@ const Sider = () => {
       theme="light"
       style={{ position: "relative" }}
     >
-      <Menu className={styled.menu} items={navMenu} mode="inline" />
+      <Spin spinning={!props.menu.length}>
+        <Menu className={styled.menu} items={navMenu} mode="inline" />
+      </Spin>
       <UtilLink />
     </Sider>
   );
