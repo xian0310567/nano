@@ -1,7 +1,7 @@
 import React from "react";
 import type { ColumnsType } from "antd/es/table";
 
-import CheckPrice from "@/components/feature/items/CheckPrice";
+import CheckPrice from "@/components/feature/product/CheckPrice";
 
 import { GetItemsCallback, ItemDataSource } from "./lib/useGetItems.interface";
 

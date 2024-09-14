@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getUser from "@/pages/api/common/getUser";
 
 export type Menu = {
-  key: number;
+  key: number | string;
   label: string;
   link?: string;
   children?: Menu[];
@@ -43,12 +43,10 @@ export default async function handler(
   if (role === "user") {
     const menu: Menu[] = [
       {
-        key: 2,
-        label: "소싱",
+        key: 1,
+        label: "상품 목록",
         children: [
-          { key: 3, label: "검수 대기", link: "/user-items/standby" },
-          { key: 4, label: "검수 완료", link: "/user-items/complate" },
-          { key: 5, label: "업로드 거절", link: "/user-items/reject" },
+          { key: "1-1", label: "업로드 완료", link: "/product/upload" },
         ],
       },
     ];

@@ -1,6 +1,6 @@
 import React from "react";
 
-import ItemsTable from "@/components/feature/items/ItemsTable";
+import ItemsTable from "@/components/feature/product/ItemsTable";
 
 const items = () => {
   return (
