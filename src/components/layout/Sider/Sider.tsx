@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Layout, Menu } from "antd";
+import UtilLink from "@/components/layout/UtilLink";
 
 import getMenuList from "@/hooks/statics/useGetMenuList";
 
@@ -10,8 +12,13 @@ const Sider = () => {
   const { navMenu } = getMenuList();
 
   return (
-    <Sider className={styled.sider}>
+    <Sider
+      className={styled.sider}
+      theme="light"
+      style={{ position: "relative" }}
+    >
       <Menu className={styled.menu} items={navMenu} mode="inline" />
+      <UtilLink />
     </Sider>
   );
 };

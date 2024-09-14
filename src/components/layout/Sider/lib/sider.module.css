@@ -1,9 +1,11 @@
 .sider {
   width: 200px;
   height: calc(100vh - 64px);
-  /* background: #2945ff; */
+}
+
+.sider:where {
+  background-color: #fff;
 }
 
 .menu {
-  height: 100%;
 }
