@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -20,8 +22,6 @@ const RedirectProvider = () => {
       if (err.response && err.response.status === 401) {
         router.push("/login");
         // messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
-
-        // 잠시 딜레이를 줘서 메시지가 보이도록 한 후 리다이렉트
       }
       return Promise.reject(err);
     }

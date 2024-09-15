@@ -29,6 +29,11 @@ export default async function handler(
         label: "상품 목록",
         children: [
           { key: "1-1", label: "업로드 완료", link: "/product/upload" },
+          {
+            key: "1-2",
+            label: "업로드 대기",
+            link: "/product/pending-product",
+          },
         ],
       },
       {

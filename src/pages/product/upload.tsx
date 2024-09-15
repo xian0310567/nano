@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import ItemsTable from "@/components/feature/product/ItemsTable";
+import ItemsTable from "@/components/feature/product/upload/ItemsTable";
 import useGetProduct from "@/hooks/feature/product/useGetProducts";
 
 const items = () => {
