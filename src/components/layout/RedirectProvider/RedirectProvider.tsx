@@ -12,7 +12,10 @@ import useRetrieveSession from "@/hooks/feature/auth/useRetrieveSession";
 const RedirectProvider = () => {
   const router = useRouter();
   const { retrieveSession } = useRetrieveSession();
-  const [messageApi, contextHolder] = message.useMessage();
+
+  message.config({
+    maxCount: 1,
+  });
 
   axios.interceptors.response.use(
     (response) => {
@@ -21,7 +24,7 @@ const RedirectProvider = () => {
     async (err) => {
       if (err.response && err.response.status === 401) {
         router.push("/login");
-        // messageApi.open({ type: "error", content: "세션이 만료되었습니다." });
+        message.error("세션이 만료되었습니다.");
       }
       return Promise.reject(err);
     }
@@ -42,7 +45,7 @@ const RedirectProvider = () => {
   //   validateSession();
   // }, [router]);
 
-  return <>{contextHolder}</>;
+  return <></>;
 };
 
 export default RedirectProvider;
