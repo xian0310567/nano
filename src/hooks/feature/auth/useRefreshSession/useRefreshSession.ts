@@ -1,12 +1,12 @@
-import { supabase } from "@/hooks/data";
+import axios from "axios";
 
 const useRefreshSession = () => {
-  const refreshSession = async (refreshToken: string) => {
-    const { data, error } = await supabase.auth.refreshSession({
-      refresh_token: refreshToken,
-    });
-
-    return { data, error };
+  const refreshSession = async () => {
+    try {
+      const res = await axios.get("/api/auth/refresh-token");
+    } catch (e) {
+      throw e;
+    }
   };
 
   return { refreshSession };
