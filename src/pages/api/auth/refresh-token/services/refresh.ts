@@ -12,12 +12,12 @@ export default async function handler(
   const { access_token, refresh_token } = req.cookies;
 
   if (!refresh_token || !access_token)
-    return res.status(401).json({ message: "Authentication failed" });
+    return res.status(400).json({ message: "Authentication failed" });
 
   const { data, error } = await supabase.auth.refreshSession({ refresh_token });
 
   if (error) {
-    return res.status(401).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 
   const { session } = data;

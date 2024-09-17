@@ -7,8 +7,11 @@ export type Pending = {
   id: string;
   created_at: string;
   name: string;
+  url: string;
   recommend_price: string;
   image: string;
+  upload_price: string;
+  standby: number;
 };
 
 export default async function handler(
@@ -22,7 +25,7 @@ export default async function handler(
   if (!user) return res.status(401).send("Authentication failed");
 
   const { data, error } = await supabase
-    .from("pending-product")
+    .from("pending_product")
     .select("*")
     .returns<Pending[]>();
 

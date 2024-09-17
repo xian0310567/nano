@@ -14,6 +14,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const getMenu = useGetMenus();
 
   useEffect(() => {
+    if (route.pathname === "/login") return;
+    if (route.pathname === "/signup") return;
+
     getMenu.getMenus();
   }, [route.pathname]);
 
