@@ -73,11 +73,11 @@ const column = (props: ColumnProps): ColumnCallback => {
           value: "upload",
         },
         {
-          text: "업로드 성공",
+          text: "업로드 거절",
           value: "reject",
         },
         {
-          text: "업로드 거절",
+          text: "검수 완료",
           value: "complete",
         },
       ],

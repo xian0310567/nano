@@ -1,10 +1,10 @@
 import UploadProductButton from "@/components/feature/product/pending-product/UploadProductButton";
 
-import { Pending } from "@/pages/api/pending-product/services/getPendingProducts";
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 import type { ColumnsType } from "antd/es/table";
 
 const ItemTableColumn = () => {
-  const columns: ColumnsType<Pending> = [
+  const columns: ColumnsType<Product> = [
     {
       title: "업로드 단가",
       key: "upload_price",

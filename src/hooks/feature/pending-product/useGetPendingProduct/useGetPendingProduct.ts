@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { Pending } from "@/pages/api/pending-product/services/getPendingProducts";
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 import { GetPendingProductCallback } from "./useGetPendingProduct.type";
 
 const useGetPendingProduct = (): GetPendingProductCallback => {
-  const [pendingProduct, setPendingProduct] = useState<Pending[]>();
+  const [pendingProduct, setPendingProduct] = useState<Product[]>();
 
   const getPendingProduct = async () => {
-    const res = await axios.get<Pending[]>("/api/pending-product");
+    const res = await axios.get<Product[]>("/api/pending-product");
 
     if (res) setPendingProduct(res.data);
   };

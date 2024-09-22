@@ -1,5 +1,5 @@
-import { Pending } from "@/pages/api/pending-product/services/getPendingProducts";
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 
 export type UploadProductButtonProps = {
-  record: Pending;
+  record: Product;
 };

@@ -13,7 +13,7 @@ const UploadState = ({ state }: { state: StandbyState }) => {
   const textRender = {
     reject: "업로드 거절",
     upload: "대기중",
-    complete: "업로드 성공",
+    complete: "검수 완료",
   };
 
   return (

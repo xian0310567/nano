@@ -1,4 +1,4 @@
-import { Product } from "@/pages/api/product/services/getProducts";
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 import type { ColumnsType } from "antd/es/table";
 
 const ItemTableColumn = () => {

@@ -3,25 +3,14 @@ import { supabase } from "@/hooks/data";
 
 import getUser from "@/pages/api/common/getUser";
 
-export type Product = {
-  id: string;
-  created_at: string;
-  name: string;
-  url: string;
-  price: number;
-  uploader: string;
-  recommend_price: string;
-  image: string;
-  upload_price: string;
-  state: "pending" | "complete";
-  standby: number;
-};
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Product[] | string>
 ) {
   const { access_token, refresh_token } = req.cookies;
+  const { id, imageUrl } = req.body;
 
   const user = await getUser({ access_token, refresh_token });
 
@@ -29,11 +18,12 @@ export default async function handler(
 
   const { data, error } = await supabase
     .from("product")
-    .select("*")
-    .eq("state", "pending")
+    .update({ image: imageUrl, uploader: user.id, state: "complete" })
+    .eq("id", id)
+    .select()
     .returns<Product[]>();
 
-  if (!data) return res.status(204).send("not found pending-products");
+  if (!data) return res.status(500).send("error");
 
   return res.status(200).send(data);
 }

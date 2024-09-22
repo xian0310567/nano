@@ -3,15 +3,7 @@ import { supabase } from "@/hooks/data";
 
 import getUser from "@/pages/api/common/getUser";
 
-export type Product = {
-  id: number;
-  name: string;
-  url: string;
-  price: number;
-  uploader: string;
-  created_at: string;
-  standby: string;
-};
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 
 export default async function handler(
   req: NextApiRequest,
@@ -27,6 +19,7 @@ export default async function handler(
   const { data, error } = await supabase
     .from("product")
     .select("*")
+    .eq("state", "complete")
     .ilike("name", `%${name}%`)
     .returns<Product[]>();
 

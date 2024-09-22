@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { Product } from "@/pages/api/product/services/getProducts";
+import { Product } from "@/pages/api/pending-product/services/getPendingProducts";
 import { GetItemsCallback } from "./lib/useGetItems.interface";
 
 const useGetItems = (): GetItemsCallback => {
