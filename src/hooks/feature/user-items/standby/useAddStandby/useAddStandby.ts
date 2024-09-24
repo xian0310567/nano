@@ -9,7 +9,7 @@ const useAddStandby = (): AddStandByCallback => {
   const [standby, setStandby] = useState<Standby | undefined>();
 
   const addStandby = async (url: string) => {
-    const res = await axios.post<Standby>("/api/user-item/standby", { url });
+    const res = await axios.post<Standby>("/api/user-item/standby/my", { url });
 
     if (res) setStandby(res.data);
   };

@@ -5,7 +5,7 @@ import { Standby } from "@/hooks/feature/user-items/standby/useGetStandbyItems";
 
 const useDeleteUserItem = () => {
   const deleteUserItem = async (record: Standby) => {
-    const res = await axios.delete("/api/user-item/standby", {
+    const res = await axios.delete("/api/user-item/standby/my", {
       params: {
         record: record.id,
       },

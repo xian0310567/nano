@@ -37,12 +37,19 @@ export default async function handler(
         ],
       },
       {
-        key: 2,
+        key: "2",
         label: "소싱",
         children: [
-          { key: 3, label: "검수 대기", link: "/user-items/standby" },
-          { key: 4, label: "검수 완료", link: "/user-items/complate" },
-          { key: 5, label: "업로드 거절", link: "/user-items/reject" },
+          { key: "2-1", label: "검수 대기", link: "/user-items/standby" },
+          { key: "2-2", label: "검수 완료", link: "/user-items/complate" },
+          { key: "2-3", label: "업로드 거절", link: "/user-items/reject" },
+        ],
+      },
+      {
+        key: "3",
+        label: "검수",
+        children: [
+          { key: "3-1", label: "소싱 검수", link: "/confirm/user-item" },
         ],
       },
     ];
